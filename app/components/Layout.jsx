@@ -28,7 +28,7 @@ import {Suspense, useEffect, useMemo} from 'react';
 import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
 
-export function Layout({children, layout}) {
+export function FullPageScroll({children, layout}) {
   return (
     <>
       
