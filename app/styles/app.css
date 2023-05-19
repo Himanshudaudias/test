@@ -179,4 +179,11 @@ shop-pay-button {
       @apply aspect-[inherit] w-full object-cover;
     }
   }
+
+.video-docker video {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}  
+  
 }
