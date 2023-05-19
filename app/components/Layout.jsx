@@ -1,4 +1,7 @@
 import {useIsHomePath} from '~/lib/utils';
+import Fullpage, { FullPageSections, FullpageSection } from "@ap.cx/react-fullpage";
+import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import {
   Drawer,
   useDrawer,
