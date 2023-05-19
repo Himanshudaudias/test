@@ -262,7 +262,7 @@ img.bannerimg {
 }
 
 .videobox {
-    background-image: url(../images/video-frame.png);
+    background-image: url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/video-frame.png?v=1684497282');
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -270,7 +270,7 @@ img.bannerimg {
 }
 
 .videoboxlast {
-    background-image: url(../images/whatareyouframe.png);
+    background-image: url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe.png?v=1684497282');
     background-size: 100% 100%;
     width: 70%;
     height: 70%;
@@ -341,7 +341,7 @@ img.bannerimg {
 
 
 .fullimgsection {
-    background-image: url(../images/home-afca.png);
+    background-image: url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/home-afca.png?v=1684497284');
     height: 100%;
     width: 100%;
     background-size: cover;
@@ -362,34 +362,5 @@ img.bannerimg {
     margin-left: auto;
     width: 95%;
     margin-right: 0;
-}
-
-
-@media (min-width:1200px) {
-    .fullimgsection .textdescription-third p {
-        width: 80%;
-
-    }
-}
-
-@media (min-width:1400px) {
-    .fullimgsection .textdescription-third p {
-        width: 80%;
-
-    }
-}
-
-@media (min-width:1600px) {
-    .fullimgsection .textdescription-third p {
-        width: 100%;
-
-    }
-}
-
-@media (min-width:1920px) {
-    .fullimgsection .textdescription-third p {
-        width: 100%;
-
-    }
 }
 
