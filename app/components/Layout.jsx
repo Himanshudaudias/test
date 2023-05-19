@@ -1,7 +1,4 @@
 import {useIsHomePath} from '~/lib/utils';
-import Fullpage, { FullPageSections, FullpageSection } from "@ap.cx/react-fullpage";
-import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
 import {
   Drawer,
   useDrawer,
@@ -19,7 +16,6 @@ import {
   Cart,
   CartLoading,
   Link,
-  FullPageScroll,
 } from '~/components';
 import {useParams, Form, Await, useMatches} from '@remix-run/react';
 import {useWindowScroll} from 'react-use';
@@ -28,15 +24,15 @@ import {Suspense, useEffect, useMemo} from 'react';
 import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
 
-export function FullPageScroll({children, layout}) {
+export function Layout({children, layout}) {
   return (
     <>
       
         <main role="main" id="mainContent" className="flex-grow">
           {children}
         </main>
-    
-     
+      </div>
+      <Footer menu={layout?.footerMenu} />
     </>
   );
 }
