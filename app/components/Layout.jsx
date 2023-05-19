@@ -28,8 +28,11 @@ export function Layout({children, layout}) {
   return (
     <>
       
+        <main role="main" id="mainContent" className="flex-grow">
           {children}
-        
+        </main>
+    
+     
     </>
   );
 }
