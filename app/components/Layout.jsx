@@ -19,6 +19,7 @@ import {
   Cart,
   CartLoading,
   Link,
+  FullPageScroll,
 } from '~/components';
 import {useParams, Form, Await, useMatches} from '@remix-run/react';
 import {useWindowScroll} from 'react-use';
