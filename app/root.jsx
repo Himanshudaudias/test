@@ -83,7 +83,7 @@ export default function App() {
         </Layout>
         <ScrollRestoration />
         <Scripts />
-        <script src="jslibrary.js"></script>
+        <script src="https://cdn.shopify.com/s/files/1/0723/6606/3933/files/jslibrary.js?v=1684753990"></script>
       </body>
     </html>
   );
@@ -287,7 +287,7 @@ const CART_QUERY = `#graphql
               product {
                 handle
                 title
-                id
+                idhttps://www.cricbuzz.com/
               }
               selectedOptions {
                 name
