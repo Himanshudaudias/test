@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 /* Tokens */
 :root {
   --color-primary: 20 20 20; /* Text, buttons, etc. */
@@ -234,7 +237,7 @@ button {
 
 img.bannerimg {
     width: 90%;
-
+    z-index: 1;
 }
 
 .bottombannertext {
@@ -242,7 +245,7 @@ img.bannerimg {
     top: 75%;
     width: 90%;
     left: 7%;
-    transform: translate(-50%, -50%);
+    transform: translate(-0%, -50%);
     text-align: left;
 }
 
@@ -266,15 +269,15 @@ img.bannerimg {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    padding: 6vw;
+    padding: 7vw;
 }
 
 .videoboxlast {
     background-image: url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe.png?v=1684497282');
     background-size: 100% 100%;
-    width: 70%;
+    width: 85%;
     height: 70%;
-    padding: 2vw;
+    padding: 9vw;
 }
 
 .lastfullslide {
@@ -327,6 +330,7 @@ img.bannerimg {
     letter-spacing: 0px;
     color: #000000;
     max-width: 514px;
+        width: 80%;
 }
 
 .textdescription-third p {
@@ -335,8 +339,10 @@ img.bannerimg {
     letter-spacing: 0px;
     color: #fff;
     max-width: 514px;
-    margin-left: auto;
+    margin-left: 120px;
     margin-right: -100px;
+    width: 40vh;
+        position: relative;
 }
 
 
@@ -360,7 +366,7 @@ img.bannerimg {
     color: #fff;
     max-width: 514px;
     margin-left: auto;
-    width: 95%;
+    width: 80%;
     margin-right: 0;
 }
 
@@ -378,3 +384,27 @@ header.bg-contrast\/80.text-primary.shadow-lightHeader.hidden.h-nav.lg\:flex.ite
     display: none;
 }
 
+
+.well {
+ height: 100vh;
+  overflow: hidden;
+}
+
+.panelscroll {
+  height: 100vh;
+}
+
+.prose{
+    width: 100%;
+    max-width: 100% !important;
+}
+
+header.grid.w-full.gap-8.p-6.py-8.md\:p-8.lg\:p-12.justify-items-start {
+    padding: 0;
+}
+
+.videobox video.min-w-full.min-h-full.object-cover {
+    width: 88% !important;
+    min-width: inherit;
+    margin: 0 auto;
+}
