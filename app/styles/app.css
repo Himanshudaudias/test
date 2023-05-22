@@ -1198,7 +1198,7 @@ header.bg-contrast\/80.text-primary.shadow-lightHeader.hidden.h-nav.lg\:flex.ite
     .textdescription p{max-width:527px;}
     .videobox{margin-right:6vw;}
     .textdescription-third p{text-align:left;font:17px/26px Poppins;letter-spacing:0px;color:#fff;max-width:615px;margin-left:5vw;margin-right:-220px;position:relative;}
-    .fullimgsection{background-position:-160px 0px;}
+    .fullimgsection{background-position:100% 100%;}
     .lastfullslide .textdescription-third p{max-width:510px;}
     .fullimgsection .textdescription-third{position:absolute;right:4%;}
     .videoboxlast{background-image:url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe_476048b1-31de-4943-b434-a23040916422.png?v=1684766130');background-size:100% 100%;width:100%;height:100%;padding:8vw;}
