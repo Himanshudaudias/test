@@ -287,7 +287,7 @@ const CART_QUERY = `#graphql
               product {
                 handle
                 title
-                idhttps://www.cricbuzz.com/
+                id
               }
               selectedOptions {
                 name
