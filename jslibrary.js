@@ -27,3 +27,11 @@ document.addEventListener('wheel', (event) => {
     scrollToPage(currentPageIndex - 1);
   }
 });
+
+container.addEventListener('scroll', () => {
+  const currentPage = Math.round(container.scrollTop / window.innerHeight);
+
+  if (currentPage !== currentPageIndex) {
+    currentPageIndex = currentPage;
+  }
+});
