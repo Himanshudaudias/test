@@ -83,7 +83,7 @@ export default function App() {
         </Layout>
         <ScrollRestoration />
         <Scripts />
-        <script src="./styles/jslibrary.js"></script>
+        <script src="jslibrary.js"></script>
       </body>
     </html>
   );
