@@ -1153,7 +1153,7 @@ img.bannerimg{width:90%;z-index:1;}
 .videosection{background-color:#F9F9F9;}
 .videobox{box-shadow:14px 16px 5px 0px rgba(210,210,210,0.76);-webkit-box-shadow:14px 16px 5px 0px rgba(210,210,210,0.90);-moz-box-shadow:14px 16px 5px 0px rgba(210,210,210,0.76);max-width:925px;margin-right:4vw;padding:20px;background:#EFEFEF;}
 .videobox video.min-w-full.min-h-full.object-cover{margin:0;}
-.videoboxlast{background-image:url(/build/_assets/whatareyouframe-72D6MLSK.png);background-size:100% 100%;width:100%;height:100%;padding:6vw;}
+.videoboxlast{background-image:url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe_476048b1-31de-4943-b434-a23040916422.png?v=1684766130');background-size:100% 100%;width:100%;height:100%;padding:6vw;}
 .lastfullslide{background-color:#F9F9F9;}
 .videoboxlast h2{font:700 55px/83px Poppins;color:#000;margin:16px;}
 .firstimg{width:200px;margin-top:auto;position:relative;bottom:-50px;left:4%;}
@@ -1164,7 +1164,7 @@ img.bannerimg{width:90%;z-index:1;}
 .textdescription p{text-align:left;font:17px/26px Poppins;letter-spacing:0px;color:#000;max-width:100%;}
 section.panelscroll.bg-black img.min-w-full.min-h-full.object-cover{height:60vh;}
 .textdescription-third p{text-align:left;font:17px/26px Poppins;letter-spacing:0px;color:#fff;max-width:572px;margin-left:5vw;margin-right:-220px;position:relative;}
-.fullimgsection{background-image:url(../images/home-afca.png);height:100%;width:100%;background-size:cover;background-position:center center;}
+.fullimgsection{background-image:url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/home-afca.png?v=1684497284');height:100%;width:100%;background-size:cover;background-position:center center;}
 .fullimgsection .textdescription-third{position:absolute;right:5%;}
 section.panelscroll.bg-black{padding-right:0;}
 .fullimgsection .textdescription-third p{text-align:left;font:17px/26px Poppins;letter-spacing:0px;color:#fff;max-width:514px;margin-left:auto;margin-right:0;}
@@ -1190,7 +1190,7 @@ header.bg-contrast\/80.text-primary.shadow-lightHeader.hidden.h-nav.lg\:flex.ite
 @media (min-width:1281px) and (max-width:1399px){
     .fullimgsection{background-position:center center;}
     .fullimgsection .textdescription-third{position:absolute;right:2%;}
-    .videoboxlast{background-image:url(/build/_assets/whatareyouframe-72D6MLSK.png);background-size:100% 100%;width:100%;height:100%;padding:8vw;}
+    .videoboxlast{background-image:url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe_476048b1-31de-4943-b434-a23040916422.png?v=1684766130');background-size:100% 100%;width:100%;height:100%;padding:8vw;}
     .textdescription p{max-width:575px;}
     .textdescription-third p{max-width:535px;margin-left:5vw;}
 }
@@ -1201,7 +1201,7 @@ header.bg-contrast\/80.text-primary.shadow-lightHeader.hidden.h-nav.lg\:flex.ite
     .fullimgsection{background-position:center center;}
     .lastfullslide .textdescription-third p{max-width:510px;}
     .fullimgsection .textdescription-third{position:absolute;right:4%;}
-    .videoboxlast{background-image:url(../images/whatareyouframe.png);background-size:100% 100%;width:100%;height:100%;padding:8vw;}
+    .videoboxlast{background-image:url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe_476048b1-31de-4943-b434-a23040916422.png?v=1684766130');background-size:100% 100%;width:100%;height:100%;padding:8vw;}
 }
 @media (min-width:1600px){
     .fullimgsection .textdescription-third p{width:100%;}
@@ -1237,7 +1237,7 @@ header.bg-contrast\/80.text-primary.shadow-lightHeader.hidden.h-nav.lg\:flex.ite
     section.panelscroll.lastfullslide .textdescription-third.flex.w-full.mb-0.items-center .w-2\/4.flex.items-end{width:100%;}
     section.panelscroll.lastfullslide .textdescription-third.flex.w-full.mb-0.items-center .w-2\/4.flex.items-end{width:100%;flex-wrap:wrap;}
     .videoboxlast h2{font:700 36px/46px Poppins;color:#000;margin:7px;}
-    .videoboxlast{background-image:url(../images/whatareyouframe.png);background-size:100% 100%;width:100%;height:100%;padding:20vw;}
+    .videoboxlast{background-image:url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe_476048b1-31de-4943-b434-a23040916422.png?v=1684766130');background-size:100% 100%;width:100%;height:100%;padding:20vw;}
     section.panelscroll.lastfullslide{height:auto;}
     .thiedimg{position:relative;left:31em;top:0em;}
     .fullimgsection .textdescription-third{position:absolute;right:5%;top:40px;}
@@ -1259,7 +1259,7 @@ header.bg-contrast\/80.text-primary.shadow-lightHeader.hidden.h-nav.lg\:flex.ite
     section.panelscroll.lastfullslide .textdescription-third.flex.w-full.mb-0.items-center .w-2\/4.flex.items-end{width:100%;}
     section.panelscroll.lastfullslide .textdescription-third.flex.w-full.mb-0.items-center .w-2\/4.flex.items-end{width:100%;flex-wrap:wrap;}
     .videoboxlast h2{font:700 36px/46px Poppins;color:#000;margin:7px;}
-    .videoboxlast{background-image:url(../images/whatareyouframe.png);background-size:100% 100%;width:100%;height:100%;padding:20vw;}
+    .videoboxlast{background-image:url('https://cdn.shopify.com/s/files/1/0741/4464/5438/files/whatareyouframe_476048b1-31de-4943-b434-a23040916422.png?v=1684766130');background-size:100% 100%;width:100%;height:100%;padding:20vw;}
     section.panelscroll.lastfullslide{height:auto;}
     .thiedimg{position:relative;left:10em;top:1em;}
 }
