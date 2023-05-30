@@ -2433,7 +2433,7 @@ img.bannerimg{width:90%;z-index:1;}
 .videoboxlast h2{font:700 55px/83px Poppins;color:#000;margin:16px;}
 .firstimg{width:200px;margin-top:auto;position:relative;bottom:-50px;left:4%;}
 .thiedimg{position:relative;left:15em;top:1em;}
-.secondimg{position:relative;bottom:2em;left:5em;}
+.secondimg{position:relative;bottom:-1em;left:5em;}
 .videoboxlast h2 span{display:block;}
 .lastfullslide .textdescription-third p{text-align:left;font:normal normal normal 17px/26px Poppins;letter-spacing:0px;color:#000000;max-width:553px;margin-right:0px;margin-left:0;}
 .textdescription p{text-align:left;font:17px/26px Poppins;letter-spacing:0px;color:#000;max-width:100%;}
