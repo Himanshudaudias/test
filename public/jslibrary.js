@@ -8,14 +8,14 @@ function scrollToPage(index) {
     if (index < 0 || index >= pages.length || isScrolling) return;
 
     isScrolling = true;
-    container.scrollTo({
-        top: pages[index].offsetTop,
-        behavior: 'smooth'
-    });
+    /* container.scrollTo({
+         top: pages[index].offsetTop,
+         behavior: 'smooth'
+     });*/
 
     setTimeout(() => {
         isScrolling = false;
-    }, 1000);
+    }, 100);
 
     // Add active class to the current page
     pages[currentPageIndex].classList.remove('active');
@@ -23,14 +23,29 @@ function scrollToPage(index) {
     currentPageIndex = index;
 }
 
-document.addEventListener('wheel', (event) => {
-    const delta = Math.sign(event.deltaY);
-
+function handleScroll(delta) {
     if (delta > 0) {
         scrollToPage(currentPageIndex + 1);
     } else if (delta < 0) {
         scrollToPage(currentPageIndex - 1);
     }
+}
+
+function handleTouchStart(event) {
+    touchStartY = event.touches[0].clientY;
+}
+
+function handleTouchMove(event) {
+    event.preventDefault();
+    const touchEndY = event.touches[0].clientY;
+    const deltaY = touchEndY - touchStartY;
+
+    handleScroll(Math.sign(deltaY));
+}
+
+document.addEventListener('wheel', (event) => {
+    const delta = Math.sign(event.deltaY);
+    handleScroll(delta);
 });
 
 container.addEventListener('scroll', () => {
@@ -45,3 +60,8 @@ container.addEventListener('scroll', () => {
         currentPageIndex = currentPage;
     }
 });
+
+let touchStartY = 0;
+
+container.addEventListener('touchstart', handleTouchStart);
+container.addEventListener('touchmove', handleTouchMove);
