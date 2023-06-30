@@ -83,7 +83,7 @@ export default function App() {
         </Layout>
         <ScrollRestoration />
         <Scripts />
-        <script src="https://cdn.shopify.com/s/files/1/0723/6606/3933/files/jslibrary.js?v=1684753990"></script>
+        <script src="https://cdn.shopify.com/s/files/1/0741/4464/5438/files/jslibrary.js?v=1688105793"></script>
       </body>
     </html>
   );
