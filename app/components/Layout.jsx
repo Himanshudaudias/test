@@ -16,6 +16,8 @@ import {
   Cart,
   CartLoading,
   Link,
+  Hero,
+  FullPageScroll,
 } from '~/components';
 import {useParams, Form, Await, useMatches} from '@remix-run/react';
 import {useWindowScroll} from 'react-use';
@@ -23,28 +25,37 @@ import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
 import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
+import ReactDOM from 'react-dom';
+
 
 export function Layout({children, layout}) {
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+<main role="main" id="mainContent" className="flex-grow">
+<FullPageScroll />
+</main> 
+
+
+    {/* <div className="flex flex-col min-h-screen"> 
         <div className="">
           <a href="#mainContent" className="sr-only">
             Skip to content
           </a>
         </div>
-        <Header
+       <Header
           title={layout?.shop.name ?? 'Hydrogen'}
           menu={layout?.headerMenu}
-        />
-        <main role="main" id="mainContent" className="flex-grow">
-          {children}
-        </main>
-      </div>
-      <Footer menu={layout?.footerMenu} />
+        /> 
+  <main role="main" id="mainContent" className="flex-grow">
+          {children} 
+        
+      </main> 
+      </div> 
+    <Footer menu={layout?.footerMenu} />   */}
     </>
   );
 }
+
 
 function Header({title, menu}) {
   const isHome = useIsHomePath();

@@ -1,140 +1,143 @@
-import {defer} from '@shopify/remix-oxygen';
+import { defer } from '@shopify/remix-oxygen';
 import {
-  isRouteErrorResponse,
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData,
-  useMatches,
-  useRouteError,
+    isRouteErrorResponse,
+    Links,
+    Meta,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
+    useLoaderData,
+    useMatches,
+    useRouteError,
 } from '@remix-run/react';
-import {ShopifySalesChannel, Seo} from '@shopify/hydrogen';
-import {Layout} from '~/components';
-import {GenericError} from './components/GenericError';
-import {NotFound} from './components/NotFound';
+import { ShopifySalesChannel, Seo } from '@shopify/hydrogen';
+import { Layout } from '~/components';
+import { GenericError } from './components/GenericError';
+import { NotFound } from './components/NotFound';
 import styles from './styles/app.css';
 import favicon from '../public/favicon.svg';
-import {seoPayload} from '~/lib/seo.server';
-import {DEFAULT_LOCALE, parseMenu, getCartId} from './lib/utils';
+import { seoPayload } from '~/lib/seo.server';
+import { DEFAULT_LOCALE, parseMenu, getCartId } from './lib/utils';
 import invariant from 'tiny-invariant';
-import {useAnalytics} from './hooks/useAnalytics';
+import { useAnalytics } from './hooks/useAnalytics';
+import { Helmet } from "react-helmet";
 
 export const links = () => {
-  return [
-    {rel: 'stylesheet', href: styles},
-    {
-      rel: 'preconnect',
-      href: 'https://cdn.shopify.com',
-    },
-    {
-      rel: 'preconnect',
-      href: 'https://shop.app',
-    },
-    {rel: 'icon', type: 'image/svg+xml', href: favicon},
-  ];
+    return [
+        { rel: 'stylesheet', href: styles },
+        {
+            rel: 'preconnect',
+            href: 'https://cdn.shopify.com',
+        },
+        {
+            rel: 'preconnect',
+            href: 'https://shop.app',
+        },
+        { rel: 'icon', type: 'image/svg+xml', href: favicon },
+    ];
 };
 
-export async function loader({request, context}) {
-  const cartId = getCartId(request);
-  const [customerAccessToken, layout] = await Promise.all([
-    context.session.get('customerAccessToken'),
-    getLayoutData(context),
-  ]);
+export async function loader({ request, context }) {
+    const cartId = getCartId(request);
+    const [customerAccessToken, layout] = await Promise.all([
+        context.session.get('customerAccessToken'),
+        getLayoutData(context),
+    ]);
 
-  const seo = seoPayload.root({shop: layout.shop, url: request.url});
+    const seo = seoPayload.root({ shop: layout.shop, url: request.url });
 
-  return defer({
-    isLoggedIn: Boolean(customerAccessToken),
-    layout,
-    selectedLocale: context.storefront.i18n,
-    cart: cartId ? getCart(context, cartId) : undefined,
-    analytics: {
-      shopifySalesChannel: ShopifySalesChannel.hydrogen,
-      shopId: layout.shop.id,
-    },
-    seo,
-  });
+    return defer({
+        isLoggedIn: Boolean(customerAccessToken),
+        layout,
+        selectedLocale: context.storefront.i18n,
+        cart: cartId ? getCart(context, cartId) : undefined,
+        analytics: {
+            shopifySalesChannel: ShopifySalesChannel.hydrogen,
+            shopId: layout.shop.id,
+        },
+        seo,
+    });
 }
 
 export default function App() {
-  const data = useLoaderData();
-  const locale = data.selectedLocale ?? DEFAULT_LOCALE;
-  const hasUserConsent = true;
+    const data = useLoaderData();
+    const locale = data.selectedLocale ?? DEFAULT_LOCALE;
+    const hasUserConsent = true;
 
-  useAnalytics(hasUserConsent, locale);
+    useAnalytics(hasUserConsent, locale);
 
-  return (
-    <html lang={locale.language}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Seo />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Layout
-          layout={data.layout}
-          key={`${locale.language}-${locale.country}`}
-        >
-          <Outlet />
-        </Layout>
-        <ScrollRestoration />
-        <Scripts />
-        <script src="https://cdn.shopify.com/s/files/1/0741/4464/5438/files/jslibrary.js?v=1688127778"></script>
-      </body>
-    </html>
-  );
+    return (
+        <html lang={locale.language}>
+            <head>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="width=device-width,initial-scale=1" />
+                <Seo />
+                <Meta />
+                <Links />
+            </head>
+            <body>
+                <Layout
+                    layout={data.layout}
+                    key={`${locale.language}-${locale.country}`}
+                >
+                    <Outlet />
+                </Layout>
+                <ScrollRestoration />
+                <Scripts />
+                <Helmet>
+                    <script src="https://cdn.shopify.com/s/files/1/0741/4464/5438/files/jslibrary.js" async></script>
+                </Helmet>
+            </body>
+        </html>
+    );
 }
 
-export function ErrorBoundary({error}) {
-  const [root] = useMatches();
-  const locale = root?.data?.selectedLocale ?? DEFAULT_LOCALE;
-  const routeError = useRouteError();
-  const isRouteError = isRouteErrorResponse(routeError);
+export function ErrorBoundary({ error }) {
+    const [root] = useMatches();
+    const locale = root?.data?.selectedLocale ?? DEFAULT_LOCALE;
+    const routeError = useRouteError();
+    const isRouteError = isRouteErrorResponse(routeError);
 
-  let title = 'Error';
-  let pageType = 'page';
+    let title = 'Error';
+    let pageType = 'page';
 
-  if (isRouteError) {
-    title = 'Not found';
-    if (routeError.status === 404) pageType = routeError.data || pageType;
-  }
+    if (isRouteError) {
+        title = 'Not found';
+        if (routeError.status === 404) pageType = routeError.data || pageType;
+    }
 
-  return (
-    <html lang={locale.language}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>{title}</title>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Layout
-          layout={root?.data?.layout}
-          key={`${locale.language}-${locale.country}`}
-        >
-          {isRouteError ? (
-            <>
-              {routeError.status === 404 ? (
-                <NotFound type={pageType} />
-              ) : (
-                <GenericError
-                  error={{message: `${routeError.status} ${routeError.data}`}}
-                />
-              )}
-            </>
-          ) : (
-            <GenericError error={error instanceof Error ? error : undefined} />
-          )}
-        </Layout>
-        <Scripts />
-      </body>
-    </html>
-  );
+    return (
+        <html lang={locale.language}>
+            <head>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="width=device-width,initial-scale=1" />
+                <title>{title}</title>
+                <Meta />
+                <Links />
+            </head>
+            <body>
+                <Layout
+                    layout={root?.data?.layout}
+                    key={`${locale.language}-${locale.country}`}
+                >
+                    {isRouteError ? (
+                        <>
+                            {routeError.status === 404 ? (
+                                <NotFound type={pageType} />
+                            ) : (
+                                <GenericError
+                                    error={{ message: `${routeError.status} ${routeError.data}` }}
+                                />
+                            )}
+                        </>
+                    ) : (
+                        <GenericError error={error instanceof Error ? error : undefined} />
+                    )}
+                </Layout>
+                <Scripts />
+            </body>
+        </html>
+    );
 }
 
 const LAYOUT_QUERY = `#graphql
@@ -187,39 +190,39 @@ const LAYOUT_QUERY = `#graphql
   }
 `;
 
-async function getLayoutData({storefront}) {
-  const HEADER_MENU_HANDLE = 'main-menu';
-  const FOOTER_MENU_HANDLE = 'footer';
+async function getLayoutData({ storefront }) {
+    const HEADER_MENU_HANDLE = 'main-menu';
+    const FOOTER_MENU_HANDLE = 'footer';
 
-  const data = await storefront.query(LAYOUT_QUERY, {
-    variables: {
-      headerMenuHandle: HEADER_MENU_HANDLE,
-      footerMenuHandle: FOOTER_MENU_HANDLE,
-      language: storefront.i18n.language,
-    },
-  });
+    const data = await storefront.query(LAYOUT_QUERY, {
+        variables: {
+            headerMenuHandle: HEADER_MENU_HANDLE,
+            footerMenuHandle: FOOTER_MENU_HANDLE,
+            language: storefront.i18n.language,
+        },
+    });
 
-  invariant(data, 'No data returned from Shopify API');
+    invariant(data, 'No data returned from Shopify API');
 
-  /*
-        Modify specific links/routes (optional)
-        @see: https://shopify.dev/api/storefront/unstable/enums/MenuItemType
-        e.g here we map:
-          - /blogs/news -> /news
-          - /blog/news/blog-post -> /news/blog-post
-          - /collections/all -> /products
-      */
-  const customPrefixes = {BLOG: '', CATALOG: 'products'};
+    /*
+          Modify specific links/routes (optional)
+          @see: https://shopify.dev/api/storefront/unstable/enums/MenuItemType
+          e.g here we map:
+            - /blogs/news -> /news
+            - /blog/news/blog-post -> /news/blog-post
+            - /collections/all -> /products
+        */
+    const customPrefixes = { BLOG: '', CATALOG: 'products' };
 
-  const headerMenu = data?.headerMenu
-    ? parseMenu(data.headerMenu, customPrefixes)
-    : undefined;
+    const headerMenu = data?.headerMenu
+        ? parseMenu(data.headerMenu, customPrefixes)
+        : undefined;
 
-  const footerMenu = data?.footerMenu
-    ? parseMenu(data.footerMenu, customPrefixes)
-    : undefined;
+    const footerMenu = data?.footerMenu
+        ? parseMenu(data.footerMenu, customPrefixes)
+        : undefined;
 
-  return {shop: data.shop, headerMenu, footerMenu};
+    return { shop: data.shop, headerMenu, footerMenu };
 }
 
 const CART_QUERY = `#graphql
@@ -336,17 +339,17 @@ const CART_QUERY = `#graphql
   }
 `;
 
-export async function getCart({storefront}, cartId) {
-  invariant(storefront, 'missing storefront client in cart query');
+export async function getCart({ storefront }, cartId) {
+    invariant(storefront, 'missing storefront client in cart query');
 
-  const {cart} = await storefront.query(CART_QUERY, {
-    variables: {
-      cartId,
-      country: storefront.i18n.country,
-      language: storefront.i18n.language,
-    },
-    cache: storefront.CacheNone(),
-  });
+    const { cart } = await storefront.query(CART_QUERY, {
+        variables: {
+            cartId,
+            country: storefront.i18n.country,
+            language: storefront.i18n.language,
+        },
+        cache: storefront.CacheNone(),
+    });
 
-  return cart;
+    return cart;
 }
