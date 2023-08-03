@@ -23,5 +23,6 @@ export {Grid} from './Grid';
 export {FeaturedProducts} from './FeaturedProducts';
 export {Pagination, getPaginationVariables, usePagination} from './Pagination';
 export {AddToCartButton} from './AddToCartButton';
+export {FullPageScroll} from './FullPageScroll';
 // Sue me
 export * from './Icon';
